@@ -11,4 +11,6 @@ public class Budget : SoftDeleteBaseEntity
     public Guid WorkspaceId { get; set; }
 
     public Guid CategoryId { get; set; }
+
+    public Category Category { get; set; } =  null!;
 }
