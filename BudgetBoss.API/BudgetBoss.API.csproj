@@ -4,7 +4,7 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>TrackToGo</RootNamespace>
+        <RootNamespace>BudgetBoss</RootNamespace>
       <UserSecretsId>ed349833-329b-4baf-b01d-3c641ae80cb9</UserSecretsId>
   </PropertyGroup>
 
@@ -15,15 +15,12 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Scalar.AspNetCore" Version="2.17.1" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\BudgetBoss.Application\BudgetBoss.Application.csproj" />
       <ProjectReference Include="..\BudgetBoss.Infrastructure\BudgetBoss.Infrastructure.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Controllers\" />
     </ItemGroup>
 
 </Project>

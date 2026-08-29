@@ -5,8 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BudgetBoss.Controllers;
 
+[ApiController]
 [Route("api/category")]
-public class CategoryController(ICategoryService categoryService, IMapper mapper) : ControllerBase
+public class CategoryController(ICategoryService categoryService) : ControllerBase
 {
     
     [HttpPost("create/{workspaceId:guid}")]

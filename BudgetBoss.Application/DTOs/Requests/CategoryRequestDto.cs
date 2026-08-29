@@ -1,6 +1,6 @@
 namespace BudgetBoss.Application.DTOs.Requests;
 
-public class CategoryDto
+public class CategoryRequestDto
 {
     public required string Name { get; set; }
 

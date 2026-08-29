@@ -15,8 +15,8 @@ public class Transaction : SoftDeleteBaseEntity
 
     public Guid CategoryId { get; set; }
 
-    public Category Category { get; set; } = null!;
+    public Category? Category { get; set; }
 
-    public User CreatedByUser { get; set; } = null!;
+    public User? CreatedByUser { get; set; } 
 
 }
