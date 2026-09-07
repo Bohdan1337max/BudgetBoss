@@ -18,7 +18,7 @@ public class CategoryRepository(BudgetBossDbContext context) : ICategoryReposito
         return category;
     }
 
-    public async Task<bool> DeleteCategoryAsync(Guid id, Guid workspaceId)
+    public async Task<bool> DeleteCategoryAsync(Guid workspaceId, Guid id)
     {
         var categoryToDelete = await _context.Categories.FirstOrDefaultAsync(category => category.Id == id && category.WorkspaceId == workspaceId);
         if(categoryToDelete == null)
@@ -37,7 +37,7 @@ public class CategoryRepository(BudgetBossDbContext context) : ICategoryReposito
        return categories;
     }
 
-    public async Task<Category?> GetCategoryByIdAsync(Guid id, Guid workspaceId)
+    public async Task<Category?> GetCategoryByIdAsync(Guid workspaceId, Guid id)
     {
         var category = await _context.Categories.Where(category => category.Id == id && category.WorkspaceId == workspaceId && category.DeletedAt == null).FirstOrDefaultAsync();
 

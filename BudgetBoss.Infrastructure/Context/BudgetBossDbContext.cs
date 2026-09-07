@@ -42,7 +42,7 @@ public class BudgetBossDbContext(DbContextOptions<BudgetBossDbContext> options) 
     {
         
         modelBuilder.Entity<Budget>().HasOne(b => b.Category).WithMany()
-            .HasForeignKey(b => b.CategoryId).OnDelete(DeleteBehavior.Restrict);
+            .HasForeignKey(b => b.CategoryId).OnDelete(DeleteBehavior.Restrict).IsRequired(false);;
         
         modelBuilder.Entity<Budget>()
             .HasOne<Workspace>()
@@ -54,13 +54,17 @@ public class BudgetBossDbContext(DbContextOptions<BudgetBossDbContext> options) 
             .WithMany()
             .HasForeignKey(c => c.WorkspaceId).OnDelete(DeleteBehavior.Restrict);
         
-        modelBuilder.Entity<Transaction>().HasOne(t => t.Category).WithMany()
-            .HasForeignKey(t => t.CategoryId).OnDelete(DeleteBehavior.Restrict);
+        modelBuilder.Entity<Transaction>()
+            .HasOne(t => t.Category)
+            .WithMany()
+            .HasForeignKey(t => t.CategoryId)
+            .OnDelete(DeleteBehavior.Restrict)
+            .IsRequired(false);
 
         modelBuilder.Entity<Transaction>()
             .HasOne(t => t.CreatedByUser)
             .WithMany()
-            .HasForeignKey(t => t.CreatedByUserId).OnDelete(DeleteBehavior.Restrict);
+            .HasForeignKey(t => t.CreatedByUserId).OnDelete(DeleteBehavior.Restrict).IsRequired(false);
         
         modelBuilder.Entity<Transaction>()
             .HasOne<Workspace>()
@@ -76,7 +80,7 @@ public class BudgetBossDbContext(DbContextOptions<BudgetBossDbContext> options) 
             .HasOne<User>()
             .WithMany()
             .HasForeignKey(w => w.UserId).OnDelete(DeleteBehavior.Restrict);
-
+        
         modelBuilder.Entity<WorkspaceMember>()
             .HasOne<Workspace>()
             .WithMany()

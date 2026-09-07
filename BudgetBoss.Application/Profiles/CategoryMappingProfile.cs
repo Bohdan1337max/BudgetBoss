@@ -7,7 +7,6 @@ namespace BudgetBoss.Application.Profiles;
 
 public class CategoryMappingProfile : Profile
 {
-
     public CategoryMappingProfile()
     {
         CreateMap<CategoryRequestDto, Category>();

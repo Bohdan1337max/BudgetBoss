@@ -2,7 +2,6 @@ namespace BudgetBoss.Domain.Entities;
 
 public class Transaction : SoftDeleteBaseEntity
 {
-
     public decimal Amount { get; set; }
 
     public string? Description { get; set; }

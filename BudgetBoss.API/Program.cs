@@ -11,9 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<BudgetBossDbContext>( o 
     => o.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")).UseSnakeCaseNamingConvention());
+
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddAutoMapper(cfg => { }, typeof(CategoryMappingProfile));
+builder.Services.AddScoped<ITransactionService, TransactionService>();
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+
+builder.Services.AddAutoMapper(cfg => { }, typeof(CategoryMappingProfile)
+    , typeof(TransactionMappingProfile));
 builder.Services.AddControllers();
 
 var app = builder.Build();
